@@ -1,0 +1,4 @@
+* To fully unload a module, need to remove out of 3 internal structures, `installedChunks`, `modules`, and `installedModules`
+* https://github.com/webpack/webpack/blob/master/lib/web/JsonpTemplatePlugin.js as the basis for understanding how to write a plugin (this is the plugin which does all the async loading and injects the needed bits)
+* Are there more aliases such as `require.cache`? Where do these come from? They get translated into `__webpack_require__.c`.
+  * Ideally, we hook into this and provide `require.unload(..)` which would litearlly be the opposite of `import()`.
